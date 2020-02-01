@@ -1,0 +1,34 @@
+{
+  "name": "Data-Structures-and-Algorithms",
+  "version": "1.0.0",
+  "description": "基础功",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --config webpack.config.js",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YxrSadhu/Data-Structures-and-Algorithms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues"
+  },
+  "homepage": "https://github.com/YxrSadhu/Data-Structures-and-Algorithms#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.3"
+  }
+}

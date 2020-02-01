@@ -4,7 +4,7 @@
  */
 
  /**
-  * 思路：
+  * 思路1：
   * 字符串全排列算法。
   * 固定第一个元素，剩余元素个数大于 1 的，拿第一个元素分别与剩余元素交换位置。交换完位置后各自再固定剩余元素中的第一个元素，然后再
   * 彼此交换，直至剩余元素个数没有。 递归思想。
@@ -49,4 +49,34 @@ function perm(str, n = 0) {
  * 测试代码
  */
 
- perm('abcd')
+ perm('abc')
+
+
+/**
+ * 2. 思路2 -> 使用回溯法
+ * temp -> 要进入排列的字符
+ * current -> 排列好的字符构成的字符串
+ * queue -> 存储未排列的字符
+ */
+
+//  function Permutation(str) {
+//    const result = [];
+//    if (str) {
+//      let queue = str.split('');
+//      PermutationCore(queue, result)
+//    }
+//    result.sort()
+//  }
+
+//  function PermutationCore(queue, result, temp = '', current = '') {
+//    current += temp;
+//    if (queue.length === 0) {
+//      result.push(current);
+//      return;
+//    }
+//    for (let i = 0; i < queue; i++) {
+//      temp = queue.shift();
+//      PermutationCore(queue, result, temp, current);
+//      queue.push(temp;)
+//    }
+//  }
