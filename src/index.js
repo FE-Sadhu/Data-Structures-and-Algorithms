@@ -38,3 +38,12 @@ console.log(divideBy2(1000))
 */
 
 
+/**
+ * 汉诺塔
+ */
+import hanoi from './exercises/汉诺塔'
+console.log(hanoi(1, '起始柱子', '辅助柱子', '目标柱子'))
+console.log('-------------------')
+console.log(hanoi(2, '起始柱子', '辅助柱子', '目标柱子'))
+console.log('-------------------')
+console.log(hanoi(3, '起始柱子', '辅助柱子', '目标柱子'))
