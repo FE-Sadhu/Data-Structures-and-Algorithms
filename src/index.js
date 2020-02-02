@@ -1,3 +1,7 @@
+/**
+ * 1. 测试 Stack 类
+ */
+/*
 import Stack from './core/Stack'
 
 const stack = new Stack()
@@ -20,3 +24,17 @@ console.log(stack.isEmpty())
 console.log('test clear:')
 stack.clear()
 stack.print()
+*/
+
+/**
+ * 2. 十进制转换二进制
+ */
+/*
+import divideBy2 from './exercises/十进制转换二进制'
+
+console.log(divideBy2(10))
+console.log(divideBy2(233))
+console.log(divideBy2(1000))
+*/
+
+
