@@ -69,14 +69,15 @@ export class PriorityQueue {
 
   front() {
     let first = items2.get(this)[0]
-    return `${first.element} - ${first.priority}`
+    return `${first.element} 优先级 -> ${first.priority}`
   }
 
   isEmpty() {
     return items.get(this).length === 0
   }
-  
+
   size() {
     return items.get(this).length
   }
 }
+
