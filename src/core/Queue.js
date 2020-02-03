@@ -81,3 +81,25 @@ export class PriorityQueue {
   }
 }
 
+/**
+ * 利用普通队列实现循环队列，如击鼓传花游戏(hot potato)
+ * （传入两个 nameList, num 参数，每当传递 num 次时，手上还拿着花的人（队列头的人）淘汰。）
+ */
+
+export function hotPotato(nameList, num) {
+  const queue = new Queue()
+
+  nameList.forEach(person => {
+    queue.enqueue(person)
+  })
+
+  while(queue.size() > 1) {
+    for(let i = 0; i < num; i++) {
+      queue.enqueue(queue.dequeue())
+    }
+    let failName = queue.dequeue() // 拿着花的人（队头）淘汰
+    console.log(`${failName} 在击鼓传花游戏中被淘汰了`)
+  }
+
+  return queue.dequeue()
+}

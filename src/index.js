@@ -41,9 +41,20 @@ console.log(divideBy2(1000))
 /**
  * 汉诺塔
  */
+/*
 import hanoi from './exercises/汉诺塔'
 console.log(hanoi(1, '起始柱子', '辅助柱子', '目标柱子'))
 console.log('-------------------')
 console.log(hanoi(2, '起始柱子', '辅助柱子', '目标柱子'))
 console.log('-------------------')
 console.log(hanoi(3, '起始柱子', '辅助柱子', '目标柱子'))
+*/
+
+/**
+ * 击鼓传花(循环队列)
+ */
+
+import { hotPotato } from './core/Queue'
+
+let names = ['John', 'Jack', 'Camila', 'Ingrid', 'Cari']
+console.log(`胜利者是: ${hotPotato(names, 7)}`)
