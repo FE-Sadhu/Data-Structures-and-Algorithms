@@ -6,7 +6,7 @@
  * 
  * 相对数组类数据结构的特点是 -> 可以很方便地在链表任意一处进行增删改节点。
  * 
- * 设计 10 个方法：
+ * 设计 9 个方法：
  *  append(element) 往链表尾部添加节点
  *  insert(element, position) 往哪个位置插入节点,插入成功返回 true,失败 false
  *  removeAt(position) 删除哪个位置的节点,返回该节点的值
@@ -14,7 +14,8 @@
  *  indexOf(element) 返回元素在链表中的索引，无则返回 -1
  *  isEmpty()
  *  size()
- * 
+ *  getHead() 返回链表第一个节点
+ *  toString() 返回链表的每个节点的 element 信息
  */
 
 class LinkNode {
@@ -71,6 +72,11 @@ class LinkedList {
     }
   }
 
+  remove(element) { // 利用下面的 indexOf() 方法
+    const index = this.indexOf(element)
+    this.removeAt(index)
+  }
+
   insert(position, element) {
     if (position > -1 && position <= this.length) { // 添加的索引是否越界
       const Node = new LinkNode(element)
@@ -96,6 +102,45 @@ class LinkedList {
       return false
     }
   }
+
+  toString() {
+    let res = '',
+    current = this.head
+
+    while(current) {
+      res += current.element + (current.next ? ',' : '.')
+      current = current.next
+    }
+
+    return res
+  }
+
+  indexOf(element) {
+    let current = this.head,
+    index = 0
+
+    while(current) {
+      if(current.element === element) {
+        return index
+      }
+      index++
+      current = current.next
+    }
+
+    return -1
+  }
+
+  isEmpty() {
+    return this.length === 0
+  }
+
+  size() {
+    return this.length
+  }
+
+  getHead() {
+    return this.head
+  }
 }
 
 /**
@@ -111,18 +156,40 @@ class LinkedList {
 /**
  * 测试 removeAt()
  */
-let list2 = new LinkedList()
-console.log(list2)
-list2.append(1)
-console.log(list2)
-console.log(list2.removeAt(0))
-console.log(list2)
-list2.append(1)
-list2.append(2)
-list2.append(3)
-console.log(list2.removeAt(1))
-console.log(list2)
-console.log(list2.removeAt(1))
-console.log(list2)
-console.log(list2.removeAt(0))
-console.log(list2)
+// let list2 = new LinkedList()
+// console.log(list2)
+// list2.append(1)
+// console.log(list2)
+// console.log(list2.removeAt(0))
+// console.log(list2)
+// list2.append(1)
+// list2.append(2)
+// list2.append(3)
+// console.log(list2.removeAt(1))
+// console.log(list2)
+// console.log(list2.removeAt(1))
+// console.log(list2)
+// console.log(list2.removeAt(0))
+// console.log(list2)
+
+/**
+ * 测试 toString()
+ */
+// let list3 = new LinkedList()
+// list3.append(1)
+// list3.append(2)
+// list3.append(3)
+// console.log(list3.toString())
+
+/**
+ * 测试 indexOf()
+ */
+
+let list4 = new LinkedList()
+list4.append(1)
+list4.append(2)
+list4.append(3)
+console.log(list4.indexOf(1))
+console.log(list4.indexOf(2))
+console.log(list4.indexOf(3))
+console.log(list4.indexOf(4))
