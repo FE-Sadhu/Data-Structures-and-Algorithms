@@ -54,7 +54,25 @@ console.log(hanoi(3, '起始柱子', '辅助柱子', '目标柱子'))
  * 击鼓传花(循环队列)
  */
 
-import { hotPotato } from './core/Queue'
+// import { hotPotato } from './core/Queue'
 
-let names = ['John', 'Jack', 'Camila', 'Ingrid', 'Cari']
-console.log(`胜利者是: ${hotPotato(names, 7)}`)
+// let names = ['John', 'Jack', 'Camila', 'Ingrid', 'Cari']
+// console.log(`胜利者是: ${hotPotato(names, 7)}`)
+
+/**
+ * 调试二叉搜索树的 search(key) 方法
+ */
+
+import BinarySearchTree from './core/BST'
+
+const tree = new BinarySearchTree();
+tree.insert(11)
+tree.insert(7)
+tree.insert(15)
+tree.insert(5)
+
+// tree.inOrderTraverse(function(node) {
+//   console.log(node.key)
+// })
+
+console.log(tree.search(5))
