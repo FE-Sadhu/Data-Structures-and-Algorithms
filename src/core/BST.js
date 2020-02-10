@@ -139,26 +139,49 @@ export default class BinarySearchTree {
     return searchNode(this.root, key)
   }
 
-  // remove(key) {
-  //   this.root = removeNode(this.root, key) // 重新赋予根节点
+  remove(key) {
+    this.root = removeNode(this.root, key) // 化成小问题，如果只有一个根节点，删除后， this.root 要被赋予 null
 
-  //   // 这个函数的目的是对比 node 与 key 对应的节点，找到后返回删除更新该节点后的子树
-  //   function removeNode(node, key) {
-  //     if (node === null) {
-  //       return null
-  //     }
+    function removeNode(node, key) {
+      if (node === null) {
+        return null
+      }
 
-  //     if (key < node.key) {
-  //       node.left = removeNode(node.left, key)
-  //       return node
-  //     } else if(key > node.key) {
-  //       node.right = removeNode(node.right, key)
-  //       return node
-  //     } else {
+      if (key < node.key) {
+        node.left = removeNode(node.left, key)
+        return node
+      } else if(key > node.key) {
+        node.right = removeNode(node.right, key)
+        return node
+      } else {
+        if(node.left === null && node.right === null) { // first case: 被删除的节点是叶节点
+          node = null
+          return node
+        }
 
-  //     }
-  //   }
-  // }
+        if (node.left === null) { // case 2: 只有一个子节点时
+          node = node.right
+          return node
+        } else if(node.right === null) {
+          node = node.left
+          return node
+        }
+
+        // case3: 该节点有左右两个节点时
+        const aux = findMinNode(node.right) // 右子树中最小的节点
+        node.key = aux.key
+        node.right = removeNode(node.right, aux.key)
+        return node
+      }
+    }
+
+    function findMinNode(node) {
+      while(node && node.left !== null) {
+        node = node.left
+      }
+      return node
+    }
+  }
 }
 
 /**
