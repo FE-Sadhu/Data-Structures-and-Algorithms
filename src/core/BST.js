@@ -8,6 +8,7 @@
  * inOrderTraverse(callback): 通过中序遍历方式遍历所有节点，callback 是用户定义的对遍历出的每个键做出的处理
  * preOrderTraverse(callback): 通过先序遍历方式遍历所有节点
  * postOrderTraverse(callback): 通过后序遍历方式遍历所有节点
+ * levelTraverse(callback): 层序遍历 (广度优先遍历)
  * min(): 返回树中最小的键
  * max(): 返回树中最大的键
  * remove(key): 从树中删除某个键
@@ -22,7 +23,7 @@ class TreeNode {
   }
 }
 
-export default class BinarySearchTree {
+class BinarySearchTree {
   constructor() {
     this.root = null // 创建个变量代表根节点，类似链表中的 head 变量代表头节点
   }
@@ -94,6 +95,20 @@ export default class BinarySearchTree {
     postOrderTraverseNode(this.root, callback)
   }
 
+  // 广度优先遍历
+  levelTraverse(callback) {
+    let queue = []
+    let node = this.root
+    queue.push(node)
+    
+    while(queue.length) {
+      node = queue.shift()
+      callback(node.key)
+      node.left && queue.push(node.left)
+      node.right && queue.push(node.right)
+    }
+  }
+
   // 搜索树中的最小值
   min() {
     let node = this.root
@@ -140,8 +155,10 @@ export default class BinarySearchTree {
   }
 
   remove(key) {
-    this.root = removeNode(this.root, key) // 化成小问题，如果只有一个根节点，删除后， this.root 要被赋予 null
+    this.root = removeNode(this.root, key)
 
+    // 在 node 为根节点的树中找到与 key 相同的节点并删除
+    // 返回删除后的以 node 为根节点的子树
     function removeNode(node, key) {
       if (node === null) {
         return null
@@ -150,33 +167,33 @@ export default class BinarySearchTree {
       if (key < node.key) {
         node.left = removeNode(node.left, key)
         return node
-      } else if(key > node.key) {
+      }else if (key > node.key) {
         node.right = removeNode(node.right, key)
         return node
-      } else {
-        if(node.left === null && node.right === null) { // first case: 被删除的节点是叶节点
+      } else { // key === node.key
+        if (node.left === null && node.right === null) { // case1: 叶节点
           node = null
           return node
         }
-
-        if (node.left === null) { // case 2: 只有一个子节点时
+        
+        if (node.left === null) { // case2: 只有一个子节点
           node = node.right
           return node
-        } else if(node.right === null) {
+        } else if (node.right === null) {
           node = node.left
           return node
         }
 
-        // case3: 该节点有左右两个节点时
-        const aux = findMinNode(node.right) // 右子树中最小的节点
-        node.key = aux.key
-        node.right = removeNode(node.right, aux.key)
+        // case3: 有两个子节点
+        let minRight = findMinNode(node.right) // 找到替换的节点 -> 右子树中最小的节点
+        node.key = minRight.key
+        node.right = removeNode(node.right, minRight.key)
         return node
       }
     }
 
     function findMinNode(node) {
-      while(node && node.left !== null) {
+      while(node.left !== null) {
         node = node.left
       }
       return node
@@ -184,6 +201,7 @@ export default class BinarySearchTree {
   }
 }
 
+export default BinarySearchTree
 /**
  * 测试
  */
@@ -193,8 +211,17 @@ export default class BinarySearchTree {
 // tree.insert(15)
 // tree.insert(5)
 
-// // tree.inOrderTraverse(function(node) {
-// //   console.log(node.key)
-// // })
+// // // tree.inOrderTraverse(function(node) {
+// // //   console.log(node.key)
+// // // })
 
-// console.log(tree.search(5))
+// // console.log(tree.search(5))
+// tree.insert(9)
+// tree.insert(13)
+// tree.insert(16)
+// tree.insert(8)
+// tree.insert(18)
+
+// tree.levelTraverse((key) => {
+//   console.log(key)
+// })
