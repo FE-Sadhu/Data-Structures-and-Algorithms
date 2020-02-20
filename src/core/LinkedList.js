@@ -25,7 +25,7 @@ class LinkNode {
   }
 }
 
-class LinkedList {
+export default class LinkedList {
   constructor() {
     this.length = 0; // 链表长度
     this.head = null; // 指针，初始指向 null
@@ -185,11 +185,11 @@ class LinkedList {
  * 测试 indexOf()
  */
 
-let list4 = new LinkedList()
-list4.append(1)
-list4.append(2)
-list4.append(3)
-console.log(list4.indexOf(1))
-console.log(list4.indexOf(2))
-console.log(list4.indexOf(3))
-console.log(list4.indexOf(4))
+// let list4 = new LinkedList()
+// list4.append(1)
+// list4.append(2)
+// list4.append(3)
+// console.log(list4.indexOf(1))
+// console.log(list4.indexOf(2))
+// console.log(list4.indexOf(3))
+// console.log(list4.indexOf(4))
