@@ -18,7 +18,7 @@
  *  toString() 返回链表的每个节点的 element 信息
  */
 
-class LinkNode {
+export class LinkNode {
   constructor(element) {
     this.element = element
     this.next = null // 默认指向 Null

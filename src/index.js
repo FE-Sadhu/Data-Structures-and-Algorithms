@@ -87,7 +87,7 @@ console.log(hanoi(3, '起始柱子', '辅助柱子', '目标柱子'))
  * 调试 lc 24.
  */
 
-import Link from './core/LinkedList'
+import Link, {LinkNode} from './core/LinkedList'
 
 const list = new Link()
 list.append(1)
@@ -95,26 +95,22 @@ list.append(2)
 list.append(3)
 list.append(4)
 
-console.log(list)
-
-var swapPairs = function(head) {
-  function swap(head) {
-      if (head === null) return;
-      if (head.next === null) return; // 要比较的节点只有第一个节点的 case (比如只有头节点)
-      
-      var firstNode = head;
-      var secondNode = head.next;
-      var thirdNode = head.next.next;
-      
-      head = secondNode;
-      secondNode.next = firstNode;
-      firstNode.next = thirdNode;
-      
-      swap(thirdNode);
+const swapPairs = function (head) {
+  let dummyHead = new LinkNode(null);
+  dummyHead.next = head;
+  let p = dummyHead;
+  while (p.next && p.next.next) {
+      let node1 = p.next,
+          node2 = p.next.next,
+          next = node2.next;
+      node2.next = node1;
+      node1.next = next;
+      p.next = node2;
+      p = node1
   }
-  
-  swap(head.head);
-  return head;
+  let list = dummyHead.next;
+  dummyHead = null;
+  return list
 };
 
-console.log(swapPairs(list))
+console.log(swapPairs(list.head))
