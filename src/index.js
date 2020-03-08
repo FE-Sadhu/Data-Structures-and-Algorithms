@@ -87,30 +87,60 @@ console.log(hanoi(3, '起始柱子', '辅助柱子', '目标柱子'))
  * 调试 lc 24.
  */
 
-import Link, {LinkNode} from './core/LinkedList'
+// import Link, {LinkNode} from './core/LinkedList'
 
-const list = new Link()
-list.append(1)
-list.append(2)
-list.append(3)
-list.append(4)
+// const list = new Link()
+// list.append(1)
+// list.append(2)
+// list.append(3)
+// list.append(4)
 
-const swapPairs = function (head) {
-  let dummyHead = new LinkNode(null);
-  dummyHead.next = head;
-  let p = dummyHead;
-  while (p.next && p.next.next) {
-      let node1 = p.next,
-          node2 = p.next.next,
-          next = node2.next;
-      node2.next = node1;
-      node1.next = next;
-      p.next = node2;
-      p = node1
+// const swapPairs = function (head) {
+//   let dummyHead = new LinkNode(null);
+//   dummyHead.next = head;
+//   let p = dummyHead;
+//   while (p.next && p.next.next) {
+//       let node1 = p.next,
+//           node2 = p.next.next,
+//           next = node2.next;
+//       node2.next = node1;
+//       node1.next = next;
+//       p.next = node2;
+//       p = node1
+//   }
+//   let list = dummyHead.next;
+//   dummyHead = null;
+//   return list
+// };
+
+// console.log(swapPairs(list.head))
+
+/*
+  test lc 106
+*/
+var buildTree = function(inorder, postorder) {
+  function TreeNode(val) {
+    this.val = val;
+    this.left = this.right = null;
   }
-  let list = dummyHead.next;
-  dummyHead = null;
-  return list
+function helper (inorder, postorder, postEnd, inStart, inEnd) {
+  if (inStart > inEnd) return null;
+    
+  let rootVal = postorder[postEnd];
+  let root = new TreeNode(rootVal);
+  
+  let inOrderRootIndex = 0;
+  for(let i = inStart; i <= inEnd; i++) {
+    inorder[i] === rootVal && (inOrderRootIndex = i);
+  }
+
+  // root.left = helper(inorder, postorder, inOrderRootIndex - 1, inStart, inOrderRootIndex - 1); // 上面这个是错的
+  root.left = helper(inorder, postorder, postEnd - (inEnd - inOrderRootIndex) - 1, inStart, inOrderRootIndex - 1);
+  root.right = helper(inorder, postorder, postEnd - 1, inOrderRootIndex + 1, inEnd)
+
+  return root;
+}
+return helper(inorder, postorder, postorder.length - 1, 0, inorder.length - 1);
 };
 
-console.log(swapPairs(list.head))
+console.log(buildTree([9,3,15,20,7], [9,15,7,20,3]))
