@@ -1,3 +1,4 @@
+// @ts-nocheck
 /*
  * @lc app=leetcode.cn id=105 lang=javascript
  *
@@ -47,7 +48,25 @@
  * @return {TreeNode}
  */
 var buildTree = function(preorder, inorder) {
+  function helper(preOrder, inOrder, preHead, inStart, inEnd) {
+    if (inStart > inEnd) return null;
 
+    let rootVal = preOrder[preHead];
+    const root = new TreeNode(rootVal);
+    
+    let inIndex = 0;
+    for(let i = inStart; i <= inEnd; i++) {
+      if (rootVal === inOrder[i]) {
+        inIndex = i;
+      }
+    }
+
+    root.left = helper(preOrder, inOrder, preHead + 1, inStart, inIndex - 1);
+    root.right = helper(preOrder, inOrder, preHead + (inIndex - inStart) + 1, inIndex + 1, inEnd);
+
+    return root;
+  }
+  return helper(preorder, inorder, 0, 0, inorder.length - 1);
 };
 // @lc code=end
 
