@@ -59,7 +59,7 @@ var addTwoNumbers = function(l1, l2) {
     l1 = l1.next;
     l2 = l2.next;
   }
-  if (!l1) helper.next = l2;
+  l2 && (helper.next = l2);
   return dummy.next;
 };
 // @lc code=end
