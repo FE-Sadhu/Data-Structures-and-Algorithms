@@ -118,29 +118,59 @@ console.log(hanoi(3, '起始柱子', '辅助柱子', '目标柱子'))
 /*
   test lc 106
 */
-var buildTree = function(inorder, postorder) {
-  function TreeNode(val) {
-    this.val = val;
-    this.left = this.right = null;
-  }
-function helper (inorder, postorder, postEnd, inStart, inEnd) {
-  if (inStart > inEnd) return null;
+// var buildTree = function(inorder, postorder) {
+//   function TreeNode(val) {
+//     this.val = val;
+//     this.left = this.right = null;
+//   }
+// function helper (inorder, postorder, postEnd, inStart, inEnd) {
+//   if (inStart > inEnd) return null;
     
-  let rootVal = postorder[postEnd];
-  let root = new TreeNode(rootVal);
+//   let rootVal = postorder[postEnd];
+//   let root = new TreeNode(rootVal);
   
-  let inOrderRootIndex = 0;
-  for(let i = inStart; i <= inEnd; i++) {
-    inorder[i] === rootVal && (inOrderRootIndex = i);
+//   let inOrderRootIndex = 0;
+//   for(let i = inStart; i <= inEnd; i++) {
+//     inorder[i] === rootVal && (inOrderRootIndex = i);
+//   }
+
+//   // root.left = helper(inorder, postorder, inOrderRootIndex - 1, inStart, inOrderRootIndex - 1); // 上面这个是错的
+//   root.left = helper(inorder, postorder, postEnd - (inEnd - inOrderRootIndex) - 1, inStart, inOrderRootIndex - 1);
+//   root.right = helper(inorder, postorder, postEnd - 1, inOrderRootIndex + 1, inEnd)
+
+//   return root;
+// }
+// return helper(inorder, postorder, postorder.length - 1, 0, inorder.length - 1);
+// };
+
+// console.log(buildTree([9,3,15,20,7], [9,15,7,20,3]))
+
+/*
+  test lc 9
+*/
+var isPalindrome = function(x) {
+  debugger
+  if (x < -9) return false;
+  if (x % 10 === x) return true;
+
+  let input = 'x',
+      mid = input.length % 2 === 0 ? input.length / 2 - 1 : Math.floor(input.length / 2);
+
+  function helper(left, right) {
+    let label = true;
+    while(left >= 0 || right < input.length) {
+      if (input[left] !== input[right]) {
+        label = false;
+        break;
+      }
+      left--;
+      right++;
+    }
+    return label;
   }
 
-  // root.left = helper(inorder, postorder, inOrderRootIndex - 1, inStart, inOrderRootIndex - 1); // 上面这个是错的
-  root.left = helper(inorder, postorder, postEnd - (inEnd - inOrderRootIndex) - 1, inStart, inOrderRootIndex - 1);
-  root.right = helper(inorder, postorder, postEnd - 1, inOrderRootIndex + 1, inEnd)
+  return input.length % 2 !== 0 ? helper(mid - 1, mid + 1) : helper(mid, mid + 1);
 
-  return root;
-}
-return helper(inorder, postorder, postorder.length - 1, 0, inorder.length - 1);
 };
 
-console.log(buildTree([9,3,15,20,7], [9,15,7,20,3]))
+isPalindrome(10);
