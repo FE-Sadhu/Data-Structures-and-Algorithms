@@ -45,7 +45,7 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function(s) {
-  let i, j = 0; // 两个指针
+  let i, j = 0; // 两个指针，j 始终指向子字符串头部，i 始终指向子字符串尾部
   let maxLength = 0;
   const set = new Set(); // 集合用于缓存字符
   for (i = 0; i < s.length; i++) {

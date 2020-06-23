@@ -148,29 +148,45 @@ console.log(hanoi(3, '起始柱子', '辅助柱子', '目标柱子'))
 /*
   test lc 9
 */
-var isPalindrome = function(x) {
-  debugger
-  if (x < -9) return false;
-  if (x % 10 === x) return true;
+// var isPalindrome = function(x) {
+//   debugger
+//   if (x < -9) return false;
+//   if (x % 10 === x) return true;
 
-  let input = 'x',
-      mid = input.length % 2 === 0 ? input.length / 2 - 1 : Math.floor(input.length / 2);
+//   let input = 'x',
+//       mid = input.length % 2 === 0 ? input.length / 2 - 1 : Math.floor(input.length / 2);
 
-  function helper(left, right) {
-    let label = true;
-    while(left >= 0 || right < input.length) {
-      if (input[left] !== input[right]) {
-        label = false;
-        break;
-      }
-      left--;
-      right++;
-    }
-    return label;
+//   function helper(left, right) {
+//     let label = true;
+//     while(left >= 0 || right < input.length) {
+//       if (input[left] !== input[right]) {
+//         label = false;
+//         break;
+//       }
+//       left--;
+//       right++;
+//     }
+//     return label;
+//   }
+
+//   return input.length % 2 !== 0 ? helper(mid - 1, mid + 1) : helper(mid, mid + 1);
+
+// };
+
+// isPalindrome(10);
+
+/**
+ * test lc 6
+ */
+
+var convert = function(s, numRows) {
+  const rowArray = new Array(numRows).fill([]);
+  console.log(rowArray);
+  for(let i = 0; i < s.length; i++) {
+    const mod = (i + 1) % numRows; // 取余决定放进哪行
+    mod === 0 ? rowArray[numRows - 1].push(s.charAt(i)) : rowArray[mod - 1].push(s.charAt(i))
   }
-
-  return input.length % 2 !== 0 ? helper(mid - 1, mid + 1) : helper(mid, mid + 1);
-
+  const result = rowArray.flat()
+  return result.join('')
 };
-
-isPalindrome(10);
+convert("PAYPALISHIRING", 3)
