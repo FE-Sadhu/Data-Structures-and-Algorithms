@@ -74,45 +74,61 @@
  * @return {string}
  */
 var intToRoman = function(num) {
-  if (num <= 0) return '';
-  let result = '';
-  // 处理 10 以下的数，返回对应罗马字符串
-  function underTen(num) {
-    if (num < 4) return 'I'.repeat(num);
-    else if (num === 4) return 'IV';
-    else if (num === 9) return 'IX';
-    else return 'V' + 'I'.repeat(num - 5)
-  }
-  if (num < 10) { // 小于 10
-    return underTen(num);
-  } else { // 大于等于 10 
-    let i = 0;
-    while(num !== 0) {
-      let item;
-      if (i === 0) item = num % 10;
-      else item = (num % 10) * Math.pow(10, i);
-      if (item < 10) result += underTen(item);
-      else {
-        let mod = item / Math.pow(10, i)
-        if (mod === 4) {
-          result = i === 1 ? 'XL' + result : i === 2 ? 'CD' + result : 'M'.repeat(mod) + result;
-        } else if (mod === 9) {
-          result = i === 1 ? 'XC' + result : i === 2 ? 'CM' + result : 'M'.repeat(mod) + result;
-        } else {
-          if (mod < 4) {
-            result = i === 1 ? 'X'.repeat(mod) + result : i === 2 ? 'C'.repeat(mod) + result : 'M'.repeat(mod) + result;
-          } else if (mod === 5) {
-            result = i === 1 ? 'L' + result : i === 2 ? 'D' + result : 'M'.repeat(mod) + result;;
-          } else {
-            result = i === 1 ? 'L' + 'X'.repeat(mod - 5) + result : i === 2 ? 'D' + 'C'.repeat(mod - 5) + result : 'M'.repeat(mod) + result;
-          }
-        }
-      }
-      num = Math.floor(num / 10);
-      i++
+  // if (num <= 0) return '';
+  // let result = '';
+  // // 处理 10 以下的数，返回对应罗马字符串
+  // function underTen(num) {
+  //   if (num < 4) return 'I'.repeat(num);
+  //   else if (num === 4) return 'IV';
+  //   else if (num === 9) return 'IX';
+  //   else return 'V' + 'I'.repeat(num - 5)
+  // }
+  // if (num < 10) { // 小于 10
+  //   return underTen(num);
+  // } else { // 大于等于 10 
+  //   let i = 0;
+  //   while(num !== 0) {
+  //     let item;
+  //     if (i === 0) item = num % 10;
+  //     else item = (num % 10) * Math.pow(10, i);
+  //     if (item < 10) result += underTen(item);
+  //     else {
+  //       let mod = item / Math.pow(10, i)
+  //       if (mod === 4) {
+  //         result = i === 1 ? 'XL' + result : i === 2 ? 'CD' + result : 'M'.repeat(mod) + result;
+  //       } else if (mod === 9) {
+  //         result = i === 1 ? 'XC' + result : i === 2 ? 'CM' + result : 'M'.repeat(mod) + result;
+  //       } else {
+  //         if (mod < 4) {
+  //           result = i === 1 ? 'X'.repeat(mod) + result : i === 2 ? 'C'.repeat(mod) + result : 'M'.repeat(mod) + result;
+  //         } else if (mod === 5) {
+  //           result = i === 1 ? 'L' + result : i === 2 ? 'D' + result : 'M'.repeat(mod) + result;;
+  //         } else {
+  //           result = i === 1 ? 'L' + 'X'.repeat(mod - 5) + result : i === 2 ? 'D' + 'C'.repeat(mod - 5) + result : 'M'.repeat(mod) + result;
+  //         }
+  //       }
+  //     }
+  //     num = Math.floor(num / 10);
+  //     i++
+  //   }
+  // }
+  // return result;
+  // 时间复杂度: O(n)
+  // 空间复杂度: O(1)
+
+  // 方法二
+  var values = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
+  var reps = ["M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"];
+  let res = '';
+  for(let i = 0 ; i < 13; i++) {
+    while(num >= values[i]) {
+        num-= values[i];
+        res+= reps[i];
     }
   }
-  return result;
+  return res;
+  // 时间复杂度: O(1); O(1)O(1)，虽然看起来是两层循环，但是外层循环的次数最多 12，内层循环的此时其实也是有限次的，综合一下，时间复杂度是 O(1)。
+  // 空间复杂度: O(1);
 };
 // @lc code=end
 // console.log(intToRoman(1994))
