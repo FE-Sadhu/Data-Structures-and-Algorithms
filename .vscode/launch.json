@@ -5,12 +5,14 @@
   "version": "0.2.0",
   "configurations": [
 
+
+
     {
       "type": "chrome",
       "request": "launch",
       "name": "Launch Chrome against localhost",
-      "url": "http://localhost:9001",
-      "webRoot": "${workspaceFolder}/src/core/BST.js"
+      "url": "http://localhost:9002",
+      "webRoot": "${workspaceFolder}/src/exercises/顺序刷题/test.html"
     }
   ]
 }
