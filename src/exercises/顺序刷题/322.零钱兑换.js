@@ -43,7 +43,27 @@
  * @return {number}
  */
 var coinChange = function(coins, amount) {
-
+  // dp 自顶向下;
+  // base case: amount === 0 时，硬币数最少为 0。
+  // 状态: amount 
+  // 选择: for coin of coins
+  // dp 函数定义：dp(amount) => 当总金额 amount 时，最少需要 dp(amount) 个硬币组成。
+  let cache = {}; // 备忘录优化
+  function dp(n) {
+    if(cache[n]) return cache[n];
+    if (n === 0) return 0;
+    if (n < 0) return -1;
+    let res = Infinity;
+    for(let coin of coins) {
+      let tmp = dp(n - coin);
+      if (tmp === -1) continue; // 跳过无解的子问题
+      res = Math.min(res, 1 + tmp);
+    }
+    // 所有选择中，一个都凑不出来的话，就会一直 continue，res 就为无穷大
+    cache[n] = Number.isFinite(res) ? res : -1;
+    return cache[n];
+  }
+  return dp(amount);
 };
 // @lc code=end
 
