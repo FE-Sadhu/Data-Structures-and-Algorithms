@@ -43,7 +43,7 @@
  * @return {number}
  */
 var coinChange = function(coins, amount) {
-  // dp 自顶向下;
+  /*  dp 自顶向下;
   // base case: amount === 0 时，硬币数最少为 0。
   // 状态: amount 
   // 选择: for coin of coins
@@ -64,6 +64,23 @@ var coinChange = function(coins, amount) {
     return cache[n];
   }
   return dp(amount);
+  // 时间复杂度: O(n*硬币数量)，剪枝后无重叠子问题。
+  // 空间复杂度: O(n), 备忘录内存不断增加。
+  */
+
+  /* dp 自底而上 */
+  // base case, 状态, 选择和自顶而下一样。
+  // dp 数组的定义: 当面额为 i 时，最少需要 dp[i] 个硬币。
+  const dp = new Array(amount+1).fill(amount + 1); // 以 amount+1 作为无穷大
+  dp[0] = 0; // base case
+  for(let i = 0; i < amount + 1; i++) {
+    for(let coin of coins) {
+      if ((i - coin) < 0) continue;
+      dp[i] = Math.min(dp[i], 1 + dp[i - coin])
+    }
+  }
+  return dp[amount] > amount ? -1 : dp[amount];
+  // 这种解法与 dp 自顶而下相比，无重叠子问题，直接从 base case dp[0] 一步步求到 dp[amount]
 };
 // @lc code=end
 
