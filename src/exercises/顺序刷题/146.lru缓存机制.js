@@ -25,7 +25,8 @@
  * 
  * 示例:
  * 
- * LRUCache cache = new LRUCache( 2 /* 缓存容量 */ )
+ * LRUCache cache = new LRUCache( 2 /* 缓存容量 */ ) 
+ /*
  * 
  * cache.put(1, 1);
  * cache.put(2, 2);
@@ -44,16 +45,88 @@
 /**
  * @param {number} capacity
  */
-// 提示： Map 是按插入顺序的。
+// 法一： 哈希表查询最快，双向链表插入删除最快，且有顺序。
+function DoubleLinkList(k, v) {
+  this.key = k;
+  this.value = v;
+  this.next = null;
+  this.prev = null;
+}
+
+var LRUCache = function(capacity) {
+  this.capacity = capacity; // 容量
+  this.hashTable = {}; // 哈希表
+  this.count = 0; // 目前存储量
+  this.dummyHead = new DoubleLinkList(); // 假头
+  this.dummyTail = new DoubleLinkList(); // 假尾
+  this.dummyHead.next = this.dummyTail;
+  this.dummyTail.prev = this.dummyHead;
+}
+
+LRUCache.prototype.get = function(key) {
+  if(this.hashTable[key]) {
+    this.remove(this.hashTable[key]);
+    this.insertToHead(this.hashTable[key]);
+    return this.hashTable[key].value;
+  } else {
+    return -1;
+  }
+}
+
+LRUCache.prototype.put = function(key, value) {
+  const node = new DoubleLinkList(key, value);
+
+  if(this.hashTable[key]) {
+    this.remove(this.hashTable[key]);
+    this.insertToHead(node);
+    // this.hashTable[key] = node
+  } else {
+    if (this.count < this.capacity) {
+      this.insertToHead(node);
+      this.count++;
+    } else {
+      const rmNode = this.removeEnd(); // 删除链表中最后一个节点
+      this.hashTable[rmNode.key] = null; // 这个节点对应的 hashTable 中的映射也要删
+      this.insertToHead(node);
+    }
+  }
+  
+  this.hashTable[key] = node;
+}
+
+LRUCache.prototype.insertToHead = function(node) {
+  node.prev = this.dummyHead;
+  node.next = this.dummyHead.next;
+  this.dummyHead.next = node;
+  node.next.prev = node;
+}
+
+LRUCache.prototype.removeEnd = function () {
+  // 删除链表最后一个节点并返回该节点
+  let node = this.dummyTail.prev;
+  this.dummyTail.prev.prev.next = this.dummyTail;
+  this.dummyTail.prev = node.prev;
+  // node.prev = null; 也可以断
+  // node.next = null;
+  return node;
+}
+
+LRUCache.prototype.remove = function(node) {
+  node.prev.next = node.next;
+  node.next.prev = node.prev;
+  // node.next = null; 也可以断
+  // node.prev = null;
+  node = null;
+}
+
+
+/* 法二：投机取巧 => js 的 Map 是按插入顺序的。
+
 var LRUCache = function(capacity) {
   this.cache = new Map();
   this.length = capacity;
 };
 
-/** 
-* @param {number} key
-* @return {number}
-*/
 LRUCache.prototype.get = function(key) {
   if (this.cache.has(key)) {
       let res = this.cache.get(key);
@@ -65,11 +138,6 @@ LRUCache.prototype.get = function(key) {
   }
 };
 
-/** 
-* @param {number} key 
-* @param {number} value
-* @return {void}
-*/
 LRUCache.prototype.put = function(key, value) {
   if(!this.cache.has(key) && this.cache.size >= this.length) {
       // for(let key of this.cache.keys()) {
@@ -82,7 +150,7 @@ LRUCache.prototype.put = function(key, value) {
   this.cache.has(key) && this.cache.delete(key);
   this.cache.set(key, value);
 };
-
+*/
 /**
  * Your LRUCache object will be instantiated and called as such:
  * var obj = new LRUCache(capacity)
