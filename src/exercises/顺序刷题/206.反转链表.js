@@ -38,25 +38,23 @@
  * @return {ListNode}
  */
 var reverseList = function(head) {
-  // 法一：返回新链表
+  // 法一：迭代
+  let prev = null,
+      curr = head;
+  
+  while (curr) {
+    const next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
+  }
+
+  return prev;
+  // 时间复杂度: O(n);
+  // 空间复杂度: O(1);
+
+  // 法二：递归 (修改原链表)
   /*
-  const dummyHead = new ListNode(-1);
-  dummyHead.next = head;
-  let helper = dummyHead.next;
-
-  function moveToFirst(node) {
-    let oldHead = dummyHead.next;
-    dummyHead.next = node;
-    node.next = oldHead;
-  }
-  while(helper) {
-    moveToFirst(helper);
-    helper = helper.next;
-  }
-  return dummyHead.next;
-  */
-
-  // 递归
   if (!head || !head.next) return head;
   let reversed = reverseList(head.next);
   let helper = reversed;
@@ -68,6 +66,27 @@ var reverseList = function(head) {
   helper.next.next = null;
 
   return reversed;
+  */
+
+  // 法三：迭代，空间换时间。（返回一个新链表）
+  /*
+  const tmp = [],
+        dummyHead = new ListNode(-1);
+  let helper = dummyHead;
+
+  while(head) {
+    tmp.unshift(head);
+    head = head.next;
+  }
+
+  while(tmp.length) {
+    helper.next = tmp.shift();
+    helper = helper.next;
+  }
+  helper.next = null;
+  
+  return dummyHead.next;
+  */
 };
 // @lc code=end
 
