@@ -51,7 +51,7 @@ var countPrimes = function(n) {
   return count;
   */
 
-  // 方法二: 依赖素数的倍数一定不是素数，从素数 2 开始算起。
+  // 方法二: 关键 -> 素数的倍数一定不是素数，从素数 2 开始算起。
   let arr = new Array(n);
   let count = 0;
 
