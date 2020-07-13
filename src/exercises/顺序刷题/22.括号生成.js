@@ -37,12 +37,54 @@
  * @return {string[]}
  */
 var generateParenthesis = function(n) {
+  /* 
+    方法一： 更好的回溯
+    相对方法二，把选择列表缩小，只有两个选择 ( 和 )
+    一定要画图画递归树，剪枝得好，都不用专门写个函数判断括号是否合法。
+  */
+  const res = [],
+        left = n, // 左括号剩余
+        right = n; // 右括号剩余
+
+  function dfs(road, left, right) {
+    // 结束条件
+    if (road.length === 2*n) {
+      res.push(road);
+      return;
+    }
+
+    if (left > right) { // 左括号剩余大于右括号剩余了，剪枝
+      return;
+    }
+
+    if (left > 0) {
+      // 作选择
+      road += '(';
+      left--;
+      // 回溯
+      dfs(road, left, right);
+      // 撤销选择
+      road = road.substring(0, road.length - 1);
+      left++;
+    }
+
+    if (right > 0) {
+      // 上面的作选择也可以用下面这种写法
+      // 下面这种写法不会改变作选择的变量，等同于撤销了选择
+      dfs(road + ')', left, right - 1);
+    }
+  }
+
+  dfs('', left, right);
+  return res;
+  /* 
+  // 方法二：回溯，超时。
   const chooses = '('.repeat(n) + ')'.repeat(n),
         res = [];
 
   function backTrack(road, chooses) {
     // 结束条件
-    if (road.length >= 6) {
+    if (road.length >= n*2) {
       if (!res.includes(road) && isValid(road)) res.push(road);
       return;
     }
@@ -83,6 +125,7 @@ var generateParenthesis = function(n) {
   backTrack('', chooses);
 
   return res;
+  */
 };
 // @lc code=end
 
