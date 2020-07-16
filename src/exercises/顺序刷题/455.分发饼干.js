@@ -57,7 +57,23 @@
  * @return {number}
  */
 var findContentChildren = function(g, s) {
+  // 贪心：让孩子尽可能去吃，从胃口小的开始，吃到满足了再给下一个吃
+  g.sort((a, b) => a - b); // 孩子胃口小 -> 大排列
+  s.sort((a, b) => a - b); // 饼干尺寸小 > 大排列
+  let res = 0,
+      j = 0; // 孩子指针
 
+  // 记住每人只分一个饼干
+  for(let i = 0; i < s.length; i++) {
+    if(j < g.length && g[j] <= s[i]) {
+      res++; // 满足了一个
+      j++; // 到下一个小朋友了
+    }
+    // 若 s[i] < g[j] ，不用担心浪费，因为每人只有一个饼干
+    // 若是 s[i] 连 g[j] 都满足不了，更满足不了 g[j+1]。
+  }
+
+  return res;
 };
 // @lc code=end
 
