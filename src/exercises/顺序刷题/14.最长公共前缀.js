@@ -42,9 +42,11 @@
  * @return {string}
  */
 var longestCommonPrefix = function(strs) {
+  // 方法一: 递归
   // 定义：接收一个字符串数组。
   // 若第一个字符是公共前缀则返回第一个字符 + 其余字符串组成的新数组的公共前缀，
   // 否则返回 ''。
+  /*
   let first, flag;
   try {
     first = strs[0].substring(0, 1),
@@ -64,6 +66,28 @@ var longestCommonPrefix = function(strs) {
     return ''
   }
   // 时间复杂度: O()
+  */
+
+  // 方法二： 水平查找
+  // 两个对比结果与下一个接着对比
+  // 时间复杂度: O(S)
+  // 空间复杂度: O(1)
+  if(!strs.length) return '';
+    
+  let ans = strs[0]; // 将第一个字符串设为默认前缀
+  // 然后从第二个字符串开始遍历
+  for(let i = 1; i < strs.length; i++) {
+      let length = Math.min(ans.length, strs[i].length);
+      for(let j = 0; j < length; j++) {
+          if(ans[j] !== strs[i][j]) {
+              ans = j !== 0 ? ans.substring(0, j) : '';
+              break;
+          }
+      }
+      if(ans === '') break;
+      if(ans.length > length) ans = ans.substring(0, length);
+  }
+  return ans;
 };
 // @lc code=end
 
