@@ -45,6 +45,8 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function(s) {
+  // 方法一: 双指针
+  /*
   let i, j = 0; // 两个指针，j 始终指向子字符串头部，i 始终指向子字符串尾部
   let maxLength = 0;
   const set = new Set(); // 集合用于缓存字符
@@ -57,6 +59,29 @@ var lengthOfLongestSubstring = function(s) {
     maxLength = Math.max(maxLength, i - j + 1);
   }
   return maxLength;
+  */
+
+  // 方法二: 滑动窗口
+  if(!s) return 0;
+  let left = 0,
+      right = 0,
+      len = -Infinity;
+  
+  let window = []
+
+  while(right < s.length) {
+    let add = s[right]; // 待添加进窗口的元素
+    // what time to shrink window
+    while(window.includes(add)) {
+      // len = Math.max(len, right - left); 放在这儿也可以
+      left++;
+      window.shift();
+    }
+    right++; // 添加进窗口
+    len = Math.max(len, right - left); 
+    window.push(add);
+  }
+  return len;
 };
 // @lc code=end
 
