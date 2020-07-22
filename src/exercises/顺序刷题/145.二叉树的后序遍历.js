@@ -1,19 +1,19 @@
 /*
- * @lc app=leetcode.cn id=144 lang=javascript
+ * @lc app=leetcode.cn id=145 lang=javascript
  *
- * [144] 二叉树的前序遍历
+ * [145] 二叉树的后序遍历
  *
- * https://leetcode-cn.com/problems/binary-tree-preorder-traversal/description/
+ * https://leetcode-cn.com/problems/binary-tree-postorder-traversal/description/
  *
  * algorithms
- * Medium (64.49%)
- * Likes:    318
+ * Hard (70.44%)
+ * Likes:    350
  * Dislikes: 0
- * Total Accepted:    135.6K
- * Total Submissions: 204.9K
+ * Total Accepted:    98.3K
+ * Total Submissions: 136.6K
  * Testcase Example:  '[1,null,2,3]'
  *
- * 给定一个二叉树，返回它的 前序 遍历。
+ * 给定一个二叉树，返回它的 后序 遍历。
  * 
  * 示例:
  * 
@@ -24,8 +24,7 @@
  * ⁠   /
  * ⁠  3 
  * 
- * 输出: [1,2,3]
- * 
+ * 输出: [3,2,1]
  * 
  * 进阶: 递归算法很简单，你可以通过迭代算法完成吗？
  * 
@@ -43,41 +42,36 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var preorderTraversal = function(root) {
-  // 方法一： 递归
+var postorderTraversal = function(root) {
+  // 方法一: 递归
   /*
   let res = [];
-  function helper (root) {
-    if(!root) return;
-    res.push(root.val);
-    helper(root.left);
-    helper(root.right);
+  function helper(node) {
+    if(!node) return;
+    helper(node.left);
+    helper(node.right);
+    res.push(node.val);
   }
   helper(root);
   return res;
   */
 
-  // 方法二：迭代
-  // 颜色标记法，模拟系统栈
-  // 时间复杂度、空间复杂度都是 O(n)
+  // 方法二: 迭代 -> 颜色标记法
   if(!root) return [];
   const stack = [],
         res = [];
-  stack.push({
-    color: 'White',
-    node: root
-  })
+  stack.push({color: 'White', node: root});
 
   while(stack.length > 0) {
     const {color, node} = stack.pop();
-    if(color === 'Gray') {
+    if(color === 'gray') {
       res.push(node.val);
     } else {
-      // 前序: 根左右
-      // 入栈: 右左根
+      // 后序: 左右根
+      // 入栈: 根右左
+      stack.push({color: 'gray', node});
       node.right && stack.push({color: 'White', node: node.right});
       node.left && stack.push({color: 'White', node: node.left});
-      stack.push({color: 'Gray', node});
     }
   }
   return res;

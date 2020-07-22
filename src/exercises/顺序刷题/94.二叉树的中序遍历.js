@@ -57,18 +57,30 @@ var inorderTraversal = function(root) {
   */
 
   // 方法二：迭代
+  // 颜色标记法
+  if(!root) return [];
   const stack = [],
         res = [];
-  let curr = root
-  while(curr || stack.length !== 0) {
-    while(curr) {
-      stack.push(curr);
-      curr = curr.left;
+  stack.push({
+    color: 'White',
+    node: root
+  })
+
+  while(stack.length > 0) {
+    const pickValue = stack.pop();
+    const {color, node} = pickValue;
+    if(color === 'gray') {
+      res.push(node.val);
+    } else {
+      // 中序: 左 根 右
+      // 入栈: 右 根 左
+      node.right && stack.push({color: 'White', node: node.right});
+      stack.push({color: 'gray', node});
+      node.left && stack.push({color: 'White', node: node.left});
     }
-    curr = stack.pop();
-    res.push(curr);
-    curr = curr.right;
   }
+
+  return res;
 };
 // @lc code=end
 
