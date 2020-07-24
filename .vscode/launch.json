@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "Launch Program",
-      "program": "${workspaceFolder}/src/exercises/顺序刷题/236.二叉树的最近公共祖先",
+      "program": "${workspaceFolder}/src/exercises/顺序刷题/101.对称二叉树.js",
       "request": "launch",
       "skipFiles": [
         "<node_internals>/**"
