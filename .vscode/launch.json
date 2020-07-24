@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "Launch Program",
-      "program": "${workspaceFolder}/src/exercises/顺序刷题/101.对称二叉树.js",
+      "program": "${workspaceFolder}/src/exercises/顺序刷题/106.从中序与后序遍历序列构造二叉树.js",
       "request": "launch",
       "skipFiles": [
         "<node_internals>/**"

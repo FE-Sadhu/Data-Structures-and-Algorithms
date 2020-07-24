@@ -49,6 +49,7 @@
  * @return {TreeNode}
  */
 var buildTree = function(inorder, postorder) {
+  /*
   if (!inorder.length || !postorder.length) return null;
 
   function helper(inOrder, postOrder, postEnd, inStart, inEnd) {
@@ -72,6 +73,29 @@ var buildTree = function(inorder, postorder) {
   }
 
   return helper(inorder, postorder, postorder.length - 1, 0, inorder.length - 1);
+  */
+  if(!inorder.length || !postorder.length) {
+    return null; 
+  }
+  function TreeNode(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+  }
+  let rootVal = postorder.pop();
+
+  let inorderIndex = inorder.indexOf(rootVal);
+
+  let leftsIn = inorder.slice(0, inorderIndex), // 左子树集合
+    rightsIn = inorder.slice(inorderIndex + 1);
+    leftsPost = postorder.slice(0, inorderIndex);
+    rightsPost = postorder.slice(inorderIndex);
+
+  let root = new TreeNode(rootVal);
+  root.left = buildTree(leftsIn, leftsPost);
+  root.right = buildTree(rightsIn, rightsPost);
+
+  return root;
 };
 // @lc code=end
 
