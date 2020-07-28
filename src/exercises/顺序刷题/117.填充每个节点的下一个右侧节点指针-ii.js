@@ -77,7 +77,14 @@
  * @return {Node}
  */
 var connect = function(root) {
-  // 思路： 以 N 层出发，去确定 N+1 层的 next 关系，始终维护一个变量确定 N+1 层最左边的节点。
+  /*
+  思路： 
+  1. 核心还是从 N 层处理 N+1 层的指针情况。
+  2. 维护一个变量 leftMost 保存 N+1 层的最左边的节点
+  3. 如果找不到下一层最左边，也就是二叉树没有下一层了。
+  4. 具体看代码注释
+  */
+  
   let node = root;
   while(node !== null) { // 如果找不到下一层最左边，也是下一层无节点了
     let level = node,
