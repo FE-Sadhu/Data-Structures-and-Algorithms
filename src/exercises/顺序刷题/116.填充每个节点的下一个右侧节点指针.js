@@ -68,12 +68,27 @@
  * @return {Node}
  */
 var connect = function(root) {
-    root.next = null;
-    let node = root;
+  if(!root) return root;
 
-    while(node) {
-      node
+  // 完美二叉树, left 为空就遍历到头了
+  let leftMost = root;
+
+  while(leftMost.left !== null) {
+    let node = leftMost;
+
+    while(node !== null) {
+      node.left.next = node.right;
+
+      if(node.next !== null) {
+        node.right.next = node.next.left;
+      }
+      node = node.next;
     }
+    leftMost = leftMost.left; // 完美二叉树
+  }
+  return root;
+  // 时间复杂度: O(N) 每个节点只访问一次
+  // 空间复杂度: O(1)
 };
 // @lc code=end
 
