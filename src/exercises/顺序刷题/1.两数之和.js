@@ -22,15 +22,30 @@ var twoSum = function(nums, target) {
   // 时间复杂度： O(n^2)，空间复杂度: O(1);
 
   // 哈希表
-  const cache = {};
-  for(let i = 0; i < nums.length; i++) {
-    const rest = target - nums[i];
-    if (rest in cache) {
-      return [i, cache[rest]]
-    }
-    cache[nums[i]] = i;
-  }
+  // const cache = {};
+  // for(let i = 0; i < nums.length; i++) {
+  //   const rest = target - nums[i];
+  //   if (rest in cache) {
+  //     return [i, cache[rest]]
+  //   }
+  //   cache[nums[i]] = i;
+  // }
   // 空间换时间，只有一层遍历
   // O(n), O(n)
+
+  const hashMap = {}
+  let res;
+
+  nums.some((item, index) => {
+    const rest = target - item
+    if (rest in hashMap) {
+      res = [index, hashMap[rest]]
+      return true
+    }
+    hashMap[item] = index
+  })
+
+  return res
 };
 // @lc code=end
+

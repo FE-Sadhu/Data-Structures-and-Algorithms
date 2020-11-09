@@ -49,7 +49,7 @@ function perm(str, n = 0) {
  * 测试代码
  */
 
- perm('abc')
+//  perm('abc')
 
 
 /**
@@ -80,3 +80,32 @@ function perm(str, n = 0) {
 //      queue.push(temp;)
 //    }
 //  }
+
+function handler(str) {
+
+	const result = []
+
+	function dfs(str, road) {
+
+		if (str.length === 0) {
+			result.push(road)
+			return
+		}
+
+		for (let i = 0; i < str.length; i++) {
+      let restStr = str.slice()
+      let cur = restStr.splice(i, 1)
+			road += cur
+
+			dfs(restStr, road)
+
+			road = road.slice(0, road.length - 1)
+		}
+	}
+
+	dfs(str.split(''), '')
+
+	return result
+}
+
+console.log(handler('abc'))

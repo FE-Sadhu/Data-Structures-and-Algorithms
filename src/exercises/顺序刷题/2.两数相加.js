@@ -43,6 +43,7 @@
  * @return {ListNode}
  */
 var addTwoNumbers = function(l1, l2) {
+  /*
   const dummy = new ListNode(-1);
   let helper = dummy;
   while(l1) {
@@ -61,5 +62,30 @@ var addTwoNumbers = function(l1, l2) {
   }
   l2 && (helper.next = l2);
   return dummy.next;
+  */
+
+  const dummy = new ListNode(-1)
+  let point = dummy
+
+  while(l1) {
+    l2 || (l2 = new ListNode(0))
+    let value = l1.val + l2.val
+
+    if (value >= 10) {
+      point.next = new ListNode(value - 10)
+      if (l1.next) l1.next.val += 1
+      else l1.next = new ListNode(1)
+    } else {
+      point.next = new ListNode(value)
+    }
+    
+    point = point.next
+    l1 = l1.next
+    l2 = l2.next
+  }
+
+  l2 && (point.next = l2)
+
+  return dummy.next
 };
 // @lc code=end
