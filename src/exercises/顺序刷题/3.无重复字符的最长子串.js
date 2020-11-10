@@ -62,6 +62,7 @@ var lengthOfLongestSubstring = function(s) {
   */
 
   // 方法二: 滑动窗口
+  /*
   if(!s) return 0;
   let left = 0,
       right = 0,
@@ -82,6 +83,27 @@ var lengthOfLongestSubstring = function(s) {
     window.push(add);
   }
   return len;
+  */
+ /* 滑动窗口 */
+  let left = 0,
+      right = 0,
+      len = s ? -Infinity : 0;
+
+  const window = []
+
+  while (right < s.length) {
+    let add = s[right] // 待添加进窗口的元素
+    // what time to shrink
+    while(window.includes(add)) {
+      left++
+      window.shift() // 窗口左移缩小
+    }
+    right++ // 添加进窗口
+    len = Math.max(len, right - left)
+    window.push(add)
+  }
+
+  return len
 };
 // @lc code=end
 
