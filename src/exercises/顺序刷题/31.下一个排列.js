@@ -31,8 +31,66 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var nextPermutation = function(nums) {
+function sort(start, arr) {
+  let len = arr.length
+  while(start < len) {
+    for (let i = start; i < len; i++) {
+      if (arr[i + 1] < arr[i]) {
+        swap(i + 1, i, arr)
+      }
+    }
+    len--
+  }
+}
 
+function swap(i, j, arr) {
+  const swap = arr[i]
+  arr[i] = arr[j]
+  arr[j] = swap
+}
+
+var nextPermutation = function(nums) {
+  const len = nums.length,
+        flag = len - 1;
+  let SIGN = true
+
+  for (let i = flag; i > 0; i--) {
+    // 从个位开始找，直到这位的数值大于前一位
+    if (nums[i] <= nums[i - 1]) continue
+
+    SIGN = false
+    // 在之前 continue 过的数字中找到 比 前一位数值大 且 相对最小的数值。  2,4,3,1 -> 3
+    let prev = nums[i - 1]
+    let tmp = i
+    let passMin = i // 维护目标值索引
+    while(tmp < len) {
+      if (nums[tmp] > prev) {
+        (nums[tmp] < nums[passMin]) && (passMin = tmp)
+      }
+      tmp++
+    }
+    
+    // 交换
+    swap(i - 1, passMin, nums)
+
+    // 把 continue 后的数字升序
+    sort(i, nums)
+    break // 只找一个
+  }
+  // 若本身就是降序数组，那么 reverse
+  if (SIGN) {
+    let s = 0
+    let e = flag
+    while(s <= e) {
+      swap(s, e, nums)
+      s++
+      e--
+    }
+  }
+  
 };
+
+// const input = [1,2,3]
+// nextPermutation(input)
 // @lc code=end
 
