@@ -33,19 +33,17 @@ var twoSum = function(nums, target) {
   // 空间换时间，只有一层遍历
   // O(n), O(n)
 
-  const hashMap = {}
+  const hash = Object.create(null);
   let res;
-
   nums.some((item, index) => {
-    const rest = target - item
-    if (rest in hashMap) {
-      res = [index, hashMap[rest]]
-      return true
+    const rest = target - item;
+    if (rest in hash) {
+      res = [hash[rest], index];
+      return true;
     }
-    hashMap[item] = index
+    hash[item] = index;
   })
-
-  return res
+  return res;
 };
 // @lc code=end
 
