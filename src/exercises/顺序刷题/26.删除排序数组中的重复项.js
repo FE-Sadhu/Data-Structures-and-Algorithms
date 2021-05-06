@@ -93,6 +93,7 @@ var removeDuplicates = function(nums) {
   */
 
   // 双指针解法二
+  /*
   let s = 0,
       e = 1;
   
@@ -105,6 +106,21 @@ var removeDuplicates = function(nums) {
     e++;
   }
   return nums.length;
+  */
+
+  // 双指针不用 replace
+  if(!nums.length) return 0;
+  let slow = 0;
+  let fast = 1;
+  const len = nums.length;
+  while(fast < len) {
+    if (nums[fast] !== nums[slow]) {
+      slow++;
+      nums[slow] = nums[fast];
+    }
+    fast++;
+  }
+  return slow + 1;
 };
 // @lc code=end
 
