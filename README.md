@@ -20,6 +20,7 @@
 
 ### 数组（含双指针）
   - [22. 删除有序数组中的重复项](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/11)
+  - [121. 买卖股票的最佳时机](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/13)
   - [122.买卖股票的最佳时机-ii](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/12)
 
 ### 填坑... 
