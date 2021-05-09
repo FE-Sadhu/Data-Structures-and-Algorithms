@@ -25,4 +25,4 @@
   - [189.旋转数组](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/15)
 
 ### 填坑... 
-想提前看 js 解题，查阅 commit
+想提前看 js 解题，移步：`/src/exercises/顺序刷题` 目录
