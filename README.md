@@ -1,4 +1,5 @@
 ### 数据结构
+  按照《数据结构与算法 JavaScript 语言描述》实现
   - [二叉树(BST、前、中、后、层序遍历的实现)](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/blob/master/src/core/BST.js) 
   - [链表](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/blob/master/src/core/LinkedList.js)
   - [队列(含最小优先队列)](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/blob/master/src/core/Queue.js)
@@ -21,10 +22,11 @@
 ### 数组（含双指针）
   - [22. 删除有序数组中的重复项](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/11)
   - [121. 买卖股票的最佳时机](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/13)
-  - [122.买卖股票的最佳时机-ii](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/12)
-  - [189.旋转数组](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/15)
-  - [217.存在重复元素](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/16)
+  - [122. 买卖股票的最佳时机-ii](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/12)
+  - [189. 旋转数组](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/15)
+  - [217. 存在重复元素](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/16)
   - [136. 只出现一次的数字](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/18)
+  - [350. 两个数组的交集-ii](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/19)
 
 ### 填坑... 
 想提前看 js 解题，移步：`/src/exercises/顺序刷题` 目录，已经解了一百多道了。
