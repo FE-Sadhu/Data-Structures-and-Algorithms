@@ -5,8 +5,35 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "node",
+      "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/src/exercises/顺序刷题/106.从中序与后序遍历序列构造二叉树.js",
+      "program": "${workspaceFolder}/app.js",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "name": "Attach by Process ID",
+      "processId": "${command:PickProcess}",
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "pwa-node"
+    },
+  {
+    "name": "Attach",
+    "port": 9229,
+    "request": "attach",
+    "skipFiles": [
+      "<node_internals>/**"
+    ],
+    "type": "pwa-node"
+  },
+    {
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/**",
       "request": "launch",
       "skipFiles": [
         "<node_internals>/**"

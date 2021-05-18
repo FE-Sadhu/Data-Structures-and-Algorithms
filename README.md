@@ -30,6 +30,7 @@
   - [66. 加一](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/20)
   - [283. 移动零](https://github.com/YxrSadhu/Data-Structures-and-Algorithms/issues/21)
   - [1. 两数之和](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/22)
+  - [36. 有效的数独](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/23)
 
 ### 提前看解题
 移步：`/src/exercises/顺序刷题` 目录，已经解了一百多道了，就是懒得整理....  慢慢二刷整理出来。
