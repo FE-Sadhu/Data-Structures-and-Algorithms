@@ -33,5 +33,8 @@
   - [36. 有效的数独](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/23)
   - [48. 旋转图像](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/24)
 
+### 字符串
+  - [344. 反转字符串](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/26)
+
 ### 提前看解题
 移步：`/src/exercises/顺序刷题` 目录，已经解了一百多道了，就是懒得整理....  慢慢二刷整理出来。
