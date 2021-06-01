@@ -45,6 +45,19 @@
  * @param {number} x
  * @return {number}
  */
+ var reverse = function(x) {
+  let rev = 0;
+  while (x !== 0) {
+      const digit = x % 10;
+      x = ~~(x / 10); // 双重位运算取反，因为位运算的结果是整数，这里的作用就是去掉小数
+      rev = rev * 10 + digit;
+      if (rev < Math.pow(-2, 31) || rev > Math.pow(2, 31) - 1) {
+          return 0;
+      }
+  }
+  return rev;
+};
+/**
 var reverse = function(x) {
   let flag = 1;
   if (x < 0) flag = -1;
@@ -52,5 +65,6 @@ var reverse = function(x) {
   return (result < - Math.pow(2, 31) || result > Math.pow(2, 31) - 1) ? 0 : result;
   // 还有一种方法是取余 10 反转。
 };
+*/
 // @lc code=end
 
