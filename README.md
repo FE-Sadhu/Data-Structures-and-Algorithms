@@ -37,6 +37,7 @@
   - [344. 反转字符串](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/26)
   - [7. 整数反转](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/28)
   - [387. 字符串中的第一个唯一字符](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/29)
-  
+  - [242. 有效的字母异位词](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/30)
+
 ### 提前看解题
 移步：`/src/exercises/顺序刷题` 目录，已经解了一百多道了，就是懒得整理....  慢慢二刷整理出来。
