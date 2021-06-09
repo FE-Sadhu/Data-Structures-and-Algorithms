@@ -40,6 +40,7 @@
   - [242. 有效的字母异位词](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/30)
   - [125. 验证回文串](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/32)
   - [28. 实现 strStr()](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/33)
+  - [38. 外观数列](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/34)
 
 
 ### 提前看解题
