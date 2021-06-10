@@ -41,6 +41,7 @@
   - [125. 验证回文串](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/32)
   - [28. 实现 strStr()](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/33)
   - [38. 外观数列](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/34)
+  - [14. 最长公共前缀](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/35)
 
 
 ### 提前看解题
