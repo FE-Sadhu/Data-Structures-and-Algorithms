@@ -43,6 +43,9 @@
   - [38. 外观数列](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/34)
   - [14. 最长公共前缀](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/35)
 
+### 链表
+  - [237. 删除链表中的节点](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/36)
+
 
 ### 提前看解题
 移步：`/src/exercises/顺序刷题` 目录，已经解了一百多道了，就是懒得整理....  慢慢二刷整理出来。
