@@ -45,7 +45,7 @@
 
 ### 链表
   - [237. 删除链表中的节点](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/36)
-
+  - [19. 删除链表的倒数第 N 个结点](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/37)
 
 ### 提前看解题
 移步：`/src/exercises/顺序刷题` 目录，已经解了一百多道了，就是懒得整理....  慢慢二刷整理出来。
