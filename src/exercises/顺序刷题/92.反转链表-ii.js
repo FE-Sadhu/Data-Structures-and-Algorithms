@@ -40,6 +40,7 @@
  * @return {ListNode}
  */
 var reverseBetween = function(head, m, n) {
+  /** 
   let count = 1,
       dummyHead = new ListNode(-1);
       dummyHead.next = head;
@@ -70,6 +71,22 @@ var reverseBetween = function(head, m, n) {
   startReverse.next = afterCur;
   
   return dummyHead.next;
+  */
+  const dummy = new ListNode(-1);
+  dummy.next = head;
+  let pre = dummy;
+  for (let i = 0; i < m - 1; ++i) {
+      pre = pre.next;
+  }
+
+  let cur = pre.next;
+  for (let i = 0; i < n - m; ++i) {
+      const next = cur.next;
+      cur.next = next.next;
+      next.next = pre.next;
+      pre.next = next;
+  }
+  return dummy.next;
 };
 // @lc code=end
 
