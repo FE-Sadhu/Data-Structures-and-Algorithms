@@ -49,6 +49,7 @@
   - [206. 反转链表](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/38)
   - [92. 反转链表 II](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/39)
   - [21. 合并两个有序链表](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/40)
+  - [234. 回文链表](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/41)
 
 ### 提前看解题
 移步：`/src/exercises/顺序刷题` 目录，已经解了一百多道了，就是懒得整理....  慢慢二刷整理出来。
