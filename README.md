@@ -54,6 +54,7 @@
   
 ### 树
  - [104. 二叉树的最大深度](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/43) (笔记)
+ - [98. 验证二叉搜索树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/44)
 
 
 ### 提前看解题
