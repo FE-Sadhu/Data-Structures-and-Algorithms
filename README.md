@@ -44,6 +44,7 @@
   - [14. 最长公共前缀](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/35)
 
 ### 链表
+  - [2. 两数相加](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/57)
   - [237. 删除链表中的节点](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/36)
   - [19. 删除链表的倒数第 N 个结点](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/37)
   - [206. 反转链表](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/38)
