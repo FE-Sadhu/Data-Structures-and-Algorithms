@@ -46,6 +46,7 @@
 ### 链表
   - [2. 两数相加](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/57)
   - [24. 两两交换链表中的节点](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/58)
+  - [61. 旋转链表](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/59)
   - [237. 删除链表中的节点](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/36)
   - [19. 删除链表的倒数第 N 个结点](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/37)
   - [206. 反转链表](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/38)
