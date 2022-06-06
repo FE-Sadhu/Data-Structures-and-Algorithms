@@ -56,6 +56,7 @@
   - [21. 合并两个有序链表](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/40)
   - [234. 回文链表](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/41)
   - [141. 环形链表](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/42)
+  - [142. 环形链表 II](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/64)
   
 ### 树
  - [104. 二叉树的最大深度](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/43) (笔记)
