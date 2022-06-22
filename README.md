@@ -61,13 +61,14 @@
   - [160. 相交链表](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/65)
   
 ### 树
- - [104. 二叉树的最大深度](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/43) (笔记)
+ - [104. 二叉树的最大深度](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/43)
  - [98. 验证二叉搜索树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/44)
  - [二叉树的前、中、后序遍历](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/45)
  - [101. 对称二叉树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/46)
  - [102. 二叉树的层序遍历](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/47)
  - [108. 将有序数组转换为二叉搜索树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/48)
+ - [剑指 Offer 34. 二叉树中和为某一值的路径](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/68)
 
 
 ### 提前看解题
-移步：`/src/exercises/顺序刷题` 目录，已经解了一百多道了，就是懒得整理....  慢慢二刷整理出来。
+移步：`/src/exercises/顺序刷题` 目录，慢慢二刷整理出来。
