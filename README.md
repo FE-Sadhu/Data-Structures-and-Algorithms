@@ -69,6 +69,7 @@
  - [105. 从前序与中序遍历序列构造二叉树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/69)
  - [106. 从中序与后序遍历序列构造二叉树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/70)
  - [889. 根据前序和后序遍历构造二叉树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/71)
+ - [654. 最大二叉树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/73)
  - [剑指 Offer 37. 序列化二叉树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/72)
  - [108. 将有序数组转换为二叉搜索树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/48)
  - [剑指 Offer 34. 二叉树中和为某一值的路径](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/68)
