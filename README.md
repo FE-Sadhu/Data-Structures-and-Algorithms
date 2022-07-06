@@ -75,6 +75,7 @@
  - [剑指 Offer 34. 二叉树中和为某一值的路径](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/68)
  - [116. 填充每个节点的下一个右侧节点指针](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/74)
  - [450. 删除二叉搜索树中的节点](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/75)
+ - [669. 修剪二叉搜索树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/76)
 
 
 ### 提前看解题
