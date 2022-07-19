@@ -62,7 +62,6 @@
   
 ### 树
  - [104. 二叉树的最大深度](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/43)
- - [98. 验证二叉搜索树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/44)
  - [二叉树的前、中、后序遍历](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/45)
  - [101. 对称二叉树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/46)
  - [102. 二叉树的层序遍历](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/47)
@@ -77,6 +76,7 @@
  - [450. 删除二叉搜索树中的节点](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/75)
  - [669. 修剪二叉搜索树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/76)
  - [863. 二叉树中所有距离为 K 的结点](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/77)
-
+ - [98. 验证二叉搜索树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/44)
+ - [99. 恢复二叉搜索树](https://github.com/FE-Sadhu/Data-Structures-and-Algorithms/issues/78)
 ### 提前看解题
 移步：`/src/exercises/顺序刷题` 目录，慢慢二刷整理出来。
